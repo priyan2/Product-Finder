@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Product List</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+</head>
+<body>
+
+<div class="container mt-3">
+
+   <div th:replace="fragments/navbar :: navbar"></div>
+    <h2 class="mb-4">Product List</h2>
+    <body class="p-1">
+
+    <!-- <div class="d-flex justify-content-between align-items-center mb-4">
+        <h4>Welcome, Admin</h4>
+        <form th:action="@{/logout}" method="post">
+            <button type="submit" class="btn btn-danger btn-sm">Logout</button>
+        </form>
+    </div> -->
+
+  <!--   <h2 class="mb-4">Available Products</h2> -->
+
+    <!-- Rest of your page -->
+    
+    
+    <a class="btn btn-success mb-3" th:href="@{/product-ui/add}">Add Product</a>
+
+    <div class="table-responsive">
+        <table class="table table-bordered table-hover table-striped align-middle">
+            <thead class="table-dark">
+                <tr>
+<!--                     <th>Image</th>
+ -->                    <th>SKU ID</th>
+                    <th>Name</th>
+                    <th>Brand</th>
+                    <th>Price</th>
+                    <th>Available</th>
+                    <th>Description</th>
+                    <th>Location</th>
+                    <th>Category ID</th>
+                    <th>Actions</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr th:each="product : ${products}">
+                    <!-- Image -->
+                    <!-- <td>
+                        <img th:src="@{/images/{img}(img=${product.imageUrl})}" alt="No image"
+                             class="img-thumbnail" style="max-width: 80px;">
+                    </td> -->
+
+                    <td th:text="${product.skuId}"></td>
+                    <td th:text="${product.name}"></td>
+                    <td th:text="${product.brand}"></td>
+                    <td th:text="${product.price} + ' ₹'"></td>
+
+                    <!-- Available -->
+                    <td>
+                        <span class="badge bg-success" th:if="${product.available}">Yes</span>
+                        <span class="badge bg-danger" th:if="${!product.available}">No</span>
+                    </td>
+
+                    <!-- Description -->
+                    <td th:text="${product.description}"></td>
+
+                    <!-- Location (null-safe) -->
+                    <td>
+                        <div th:if="${product.location != null}">
+                            Section: <span th:text="${product.location.section}"></span><br>
+                            Shelf: <span th:text="${product.location.shelf}"></span><br>
+                            Aisle: <span th:text="${product.location.aisle}"></span>
+                        </div>
+                        <span th:if="${product.location == null}">N/A</span>
+                    </td>
+
+                    <!-- Category ID (null-safe) -->
+                    <td th:text="${product.category != null ? product.category.id : 'N/A'}"></td>
+
+                    <!-- Actions -->
+                    <td>
+                        <a class="btn btn-primary btn-sm mb-1" th:href="@{'/product-ui/edit/' + ${product.id}}">Edit</a>
+                        <a class="btn btn-danger btn-sm mb-1" th:href="@{'/product-ui/delete/' + ${product.id}}"
+                           onclick="return confirm('Are you sure you want to delete this product?');">Delete</a>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>
+
+</body>
+</html>

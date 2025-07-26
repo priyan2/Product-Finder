@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Home - Product Finder</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+</head>
+<body>
+
+<!-- Navbar -->
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark px-4">
+    <a class="navbar-brand" href="#">S-MART</a>
+    <div class="collapse navbar-collapse">
+        <ul class="navbar-nav ms-auto">
+            <li class="nav-item"><a class="nav-link" href="/home">Home</a></li>
+            <li class="nav-item"><a class="nav-link" href="/product-ui/products/view-only">Search Products</a></li>
+            <li class="nav-item"><a class="nav-link" href="/admin/login">Admin Login</a></li>
+            <li class="nav-item"><a class="nav-link" href="/feedback">Feedback</a></li>
+        </ul>
+    </div>
+</nav>
+
+<!-- Welcome Section -->
+<div class="container mt-5 text-center">
+    <h1 class="display-4">Welcome to S-Mart</h1>
+  	<p class="lead">We make you bill under budget</p>
+    <p class="lead">Search products, check their availability, and find them in-store!</p>
+    <a href="/product-ui/products/view-only" class="btn btn-primary mt-3">View Products</a>
+</div>
+
+<!-- Offer Section -->
+<div class="container mt-5">
+    <h2 class="text-center mb-4">Today's Offers</h2>
+    <div class="row justify-content-center">
+        <div class="col-md-4">
+            <div class="card shadow-sm">
+              <!--  <img src="" class="card-img-top" alt="Offer 1">  -->
+              <img th:src="@{/images/offerImg.jpeg}" class="img-fluid w-100 card-img-top offer-img"/>
+                <div class="card-body">
+                    <h5 class="card-title">50% Off on Snacks</h5>
+                    <p class="card-text">Grab your favorite snacks at half price. Limited time offer!</p>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-4 mt-4 mt-md-0">
+            <div class="card shadow-sm">
+               <img th:src="@{/images/oneplusone.jpeg}" class="img-fluid w-100 card-img-top offer-img" style="height:250px"/>
+                <div class="card-body">
+                    <h5 class="card-title">Buy 1 Get 1 Free</h5>
+                    <p class="card-text">Buy selected grocery items and get one absolutely free.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Footer -->
+<div th:replace="fragments/footer :: footer"></div>
+
+</body>
+</html>
