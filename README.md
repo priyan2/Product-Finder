@@ -13,7 +13,7 @@ In large supermarkets, customers often struggle to locate specific products quic
 # Future enhancement
 
 * Inventory management
-* Real time stock alert when
+* Real time stock alert
 * Data analytics
 
 
