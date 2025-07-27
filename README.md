@@ -5,13 +5,20 @@
 
 In large supermarkets, customers often struggle to locate specific products quickly due to the vast number of aisles and sections. Store staff may not always be available to guide them, resulting in a frustrating shopping experience and potentially lost sales.
 
-
 # Tech stack used
 
 * Java spring boot for backend with mysql for database
-* Thymeleaf for the frontend
+* Thymeleaf for the frontend with bootstrap framework
+
+# Future enhancement
+
+* Inventory management
+* Real time stock alert when
+* Data analytics
+
 
 # Project Pages
+
 Home page
 ![alt text](<Screenshot 2025-07-27 092758.png>)
 
@@ -36,4 +43,3 @@ User can give feedback
 Admin can view user feedback
 ![alt text](<Screenshot 2025-07-27 093122.png>)
 
-    
